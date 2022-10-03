@@ -12,7 +12,7 @@ class Book(models.Model):
     slug = models.SlugField(default="", null=False)
 
     def get_absolute_url(self):
-        return reverse('book_detail', args=[str(self.id)])
+        return reverse('book_detail', args=[str(self.slug)])
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
